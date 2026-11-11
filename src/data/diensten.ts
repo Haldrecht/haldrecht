@@ -26,26 +26,26 @@ export const DIENSTEN: Dienst[] = [
     nl: {
       titel: "ISO 45001",
       beschrijving:
-        "ISO 45001 (ISO45001) voorbereiden wanneer een opdrachtgever arbomanagement eist. De certificerende instelling beslist.",
+        "ISO 45001 (ISO45001) voorbereiden wanneer een opdrachtgever arbomanagement eist. Geaccrediteerde certificerende instellingen beslissen.",
       lead:
         "ISO 45001, ook gezocht als ISO45001, is de eis waarmee een opdrachtgever toetst of je arbeid en gezondheid aantoonbaar beheerst.",
       alinea: [
         "Grote afnemers en aanbestedende diensten zetten die eis vóór de inhoudelijke beoordeling. Zonder een werkend arbomanagementsysteem kom je de poort niet door, hoe goed het aanbod daarna ook is.",
         "Ik vertaal ISO 45001 naar een manier van werken die een externe toets doorstaat: rollen, risico's, meldingen en bewijs dat klopt op de peildatum. Geen map die alleen voor de audit bestaat.",
       ],
-      grens: "Ik beloof het certificaat niet. Dat geeft de certificerende instelling af.",
+      grens: "Ik geef het certificaat niet af. Geaccrediteerde certificerende instellingen doen dat.",
     },
     en: {
       titel: "ISO 45001",
       beschrijving:
-        "Prepare for ISO 45001 (ISO45001) when a buyer requires occupational health and safety management. The certification body decides.",
+        "Prepare for ISO 45001 (ISO45001) when a buyer requires occupational health and safety management. Accredited certification bodies decide.",
       lead:
         "ISO 45001, also searched as ISO45001, is the requirement a buyer uses to test whether you can evidence control of health and safety at work.",
       alinea: [
         "Large buyers and contracting authorities apply it before anyone reads the offer. Without a working system you do not pass the gate.",
         "I turn ISO 45001 into a way of working that survives an external audit: roles, risks, reports, and evidence that is valid on the right date.",
       ],
-      grens: "I do not promise the certificate. The certification body issues that.",
+      grens: "I do not issue the certificate. Accredited certification bodies do that.",
     },
   },
   {
@@ -126,7 +126,7 @@ export const DIENSTEN: Dienst[] = [
       beschrijving:
         "Resilience for people in uniform: keep acting under pressure, and be able to show it.",
       lead:
-        "Resilience is the mental and physical base under pressure. RTGB tests the legal frame; resilience is what a person can still do when a situation locks up.",
+        "Resilience is the mental and physical base under pressure. RTGB tests the statutory frame; resilience is what a person can still do when a situation locks up.",
       alinea: [
         "For uniformed professions, buyers increasingly expect this to be a repeated practice with an owner and some form of evidence, not a good intention.",
         "I help decide what you must be able to show, and how it connects to aggression, tactical conduct and, where the role is authorised to use force, RTGB.",
@@ -231,19 +231,19 @@ export const DIENSTEN: Dienst[] = [
         "De poort zit zelden in de tekst van de norm. Hij zit in de vraag of afwijkingen, klachten en verbetering aantoonbaar zijn op het moment van inschrijven.",
         "Ik bouw dat als een manier van werken, niet als een handboek dat niemand opent.",
       ],
-      grens: "Ik beloof het certificaat niet. Dat geeft de certificerende instelling af.",
+      grens: "Ik geef het certificaat niet af. Geaccrediteerde certificerende instellingen doen dat.",
     },
     en: {
       titel: "ISO 9001",
       beschrijving:
-        "Prepare for ISO 9001 (ISO9001) when a buyer requires quality management. The certification body issues the certificate.",
+        "Prepare for ISO 9001 (ISO9001) when a buyer requires quality management. Accredited certification bodies issue the certificate.",
       lead:
         "ISO 9001, also searched as ISO9001, is still the requirement a buyer uses to test whether you keep quality promises and can show it.",
       alinea: [
         "The gate is rarely the text of the standard. It is whether deviations, complaints and improvement are demonstrable at the moment you bid.",
         "I build that as a way of working, not as a manual nobody opens.",
       ],
-      grens: "I do not promise the certificate. The certification body issues that.",
+      grens: "I do not issue the certificate. Accredited certification bodies do that.",
     },
   },
   {
@@ -259,7 +259,7 @@ export const DIENSTEN: Dienst[] = [
         "De vraag komt vaak binnen als een leveranciersvragenlijst of als een geschiktheidseis. Wat telt is of maatregelen, risico's en bewijs bij elkaar horen.",
         "Ik zet ISO 27001 om in een werkwijze die een externe toets kan volgen, samen met privacy waar de AVG dezelfde feiten raakt.",
       ],
-      grens: "Ik beloof het certificaat niet. Dat geeft de certificerende instelling af.",
+      grens: "Ik geef het certificaat niet af. Geaccrediteerde certificerende instellingen doen dat.",
     },
     en: {
       titel: "ISO 27001",
@@ -271,7 +271,7 @@ export const DIENSTEN: Dienst[] = [
         "The question often arrives as a supplier questionnaire or as a selection requirement. What counts is whether measures, risks and evidence belong together.",
         "I turn ISO 27001 into a way of working an external audit can follow, together with privacy where data protection law touches the same facts.",
       ],
-      grens: "I do not promise the certificate. The certification body issues that.",
+      grens: "I do not issue the certificate. Accredited certification bodies do that.",
     },
   },
   {
@@ -280,26 +280,26 @@ export const DIENSTEN: Dienst[] = [
     nl: {
       titel: "Privacy",
       beschrijving:
-        "Privacy en de AVG aantoonbaar maken voor een afnemer. Dit is geen voorbehouden juridisch advies.",
+        "Privacy en de AVG aantoonbaar maken voor een afnemer. Ik bereid het register en de security questionnaire voor.",
       lead:
         "Privacy wordt een poort zodra een afnemer vraagt of je de AVG aantoonbaar naleeft: verwerkingen, bewaartermijnen, en afspraken met partijen die meekijken.",
       alinea: [
-        "Ik help dat op een rij te zetten zodat een vragenlijst of een audit de feiten vindt. Waar het antwoord een juridisch oordeel is, stop ik en verwijs ik door.",
+        "Ik help dat op een rij te zetten zodat een vragenlijst of een interne audit de feiten vindt. Waar het antwoord buiten deze voorbereiding valt, stop ik en verwijs ik door.",
         "Privacy raakt ISO 27001 waar dezelfde systemen en dezelfde leveranciers in het spel zijn. Die twee houd ik uit elkaar, en ik laat zien waar ze elkaar nodig hebben.",
       ],
-      grens: "Ik lever geen voorbehouden juridisch werk. Een oordeel over de wet is aan een bevoegde jurist.",
+      grens: "Ik geef geen oordeel over de wet. Ik bereid het register voor en verwijs de rest door.",
     },
     en: {
       titel: "Privacy",
       beschrijving:
-        "Make privacy and the GDPR demonstrable for a buyer. This is not reserved legal advice.",
+        "Make privacy and the GDPR demonstrable for a buyer. I prepare the record and the security questionnaire.",
       lead:
         "Privacy becomes a gate when a buyer asks whether you can evidence GDPR compliance: processing, retention, and agreements with parties who also see the data.",
       alinea: [
-        "I help put that in order so a questionnaire or an audit finds the facts. Where the answer is a legal judgement, I stop and refer on.",
+        "I help put that in order so a questionnaire or an internal audit finds the facts. Where the answer falls outside this preparation, I stop and refer on.",
         "Privacy meets ISO 27001 where the same systems and the same suppliers are involved. I keep the two apart, and I show where they need each other.",
       ],
-      grens: "I do not provide reserved legal services. A judgement on the law belongs to a qualified lawyer.",
+      grens: "I do not give a judgement on the statute. I prepare the record and refer the rest on.",
     },
   },
   {
@@ -308,26 +308,26 @@ export const DIENSTEN: Dienst[] = [
     nl: {
       titel: "ISO 14001",
       beschrijving:
-        "ISO 14001 (ISO14001) voorbereiden voor milieumanagement dat een opdrachtgever wil zien. De instelling certificeert.",
+        "ISO 14001 (ISO14001) voorbereiden voor milieumanagement dat een opdrachtgever wil zien. Geaccrediteerde certificerende instellingen geven het af.",
       lead:
         "ISO 14001, ook gezocht als ISO14001, is de eis waarmee een opdrachtgever toetst of je milieueffecten kent en bijstuurt.",
       alinea: [
         "In bouw, installatie en levering aan overheden staat die eis vaak naast ISO 9001 en ISO 45001. Drie systemen die elkaar moeten gebruiken, niet drie mappen.",
         "Ik zet ISO 14001 op in lijn met hoe het werk loopt, zodat een externe toets de milieudoelen en de afwijkingen kan volgen.",
       ],
-      grens: "Ik beloof het certificaat niet. Dat geeft de certificerende instelling af.",
+      grens: "Ik geef het certificaat niet af. Geaccrediteerde certificerende instellingen doen dat.",
     },
     en: {
       titel: "ISO 14001",
       beschrijving:
-        "Prepare for ISO 14001 (ISO14001) when a buyer wants environmental management. The certification body decides.",
+        "Prepare for ISO 14001 (ISO14001) when a buyer wants environmental management. Accredited certification bodies decide.",
       lead:
         "ISO 14001, also searched as ISO14001, is the requirement a buyer uses to test whether you know your environmental effects and act on them.",
       alinea: [
         "In construction, installation and supply to government it often sits next to ISO 9001 and ISO 45001. Three systems that should use each other, not three folders.",
         "I set ISO 14001 up in line with how the work runs, so an external audit can follow the environmental objectives and the deviations.",
       ],
-      grens: "I do not promise the certificate. The certification body issues that.",
+      grens: "I do not issue the certificate. Accredited certification bodies do that.",
     },
   },
   {

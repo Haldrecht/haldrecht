@@ -85,13 +85,26 @@ header.site .wrap {
   min-height: 88px;
 }
 header.site a.merk {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   color: var(--wit);
   font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.02em;
   text-decoration: none;
   border: 1px solid var(--wit);
   padding: 8px 12px;
+  line-height: 1.15;
+}
+header.site .woordmerk,
+footer.site .merk-voet {
+  letter-spacing: 0.16em;
+  font-size: 15px;
+}
+header.site .onderschrift,
+footer.site .onderschrift {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--noot);
 }
 header.site nav {
   display: flex;
@@ -445,9 +458,8 @@ footer.site .merk-voet {
   margin: 0;
   color: var(--wit);
   font-weight: 400;
-  letter-spacing: 0.02em;
-  font-size: 16px;
 }
+footer.site .onderschrift { margin: 4px 0 8px; }
 footer.site p { margin: 0; }
 footer.site a { color: var(--noot); }
 

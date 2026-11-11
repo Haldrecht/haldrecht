@@ -150,9 +150,11 @@ Niet ongevraagd een nieuwe database of pagina aanmaken. Deze bestaat.
   `tender-onderzoek/tender-fase-1C-stap1-terugkoppeling.md`.
 - `/kaart` en `/scan` zijn daarom nog niet gebouwd. Bouw ze pas als de data er
   is; een lege kaart is erger dan geen kaart.
-- De naam van de praktijk staat nog als `Groundwork` in `src/config.ts`. Dat
-  is een werknaam. Wijzig hem op één plek, nergens anders. Domein, KvK en
-  e-mailadres staan daar ook leeg. Het gespreksformulier opent het
+- De firmanaam staat in `src/config.ts`: `naam` is Haldrecht, `woordmerk` is
+  HALDRECHT, `descriptor` is Regulatory Affairs & Assurance. Het kop- en
+  voetmerk lezen het woordmerk. Domein en e-mail blijven een placeholder
+  (`example.nl`, leeg e-mailadres). haldrecht.nl en haldrecht.com zijn niet
+  geregistreerd; zet ze niet in de config. Het gespreksformulier opent het
   mailprogramma van de bezoeker zodra `SITE.email` is ingevuld. Tot die tijd
   zegt de contactpagina dat het adres er nog niet is.
 - Het eerste artikel staat op `status: concept` tot het stemprofiel er is.
