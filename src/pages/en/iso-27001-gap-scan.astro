@@ -1,0 +1,68 @@
+---
+import Base from "../../layouts/Base.astro";
+import { PRIJSNOTA, PRIJZEN, TEKST, prijsband } from "../../config";
+
+const titel = "ISO 27001 gap scan and security questionnaire";
+const beschrijving =
+  "ISO 27001 gap analysis for a SaaS, IT or MSP firm. Includes preparing a security questionnaire when that is the trigger. Indicative band, not market-tested.";
+const scan = prijsband(PRIJZEN.gapScan, "en");
+const audit = prijsband(PRIJZEN.interneAudit, "en");
+const avg = prijsband(PRIJZEN.avg, "en");
+const implementatie = prijsband(PRIJZEN.implementatie, "en");
+const retainer = prijsband(PRIJZEN.retainerMaand, "en");
+---
+
+<Base titel={titel} beschrijving={beschrijving} taal="en" lees>
+  <h1>{titel}</h1>
+  <p class="lead">
+    The entry offer is an ISO 27001 gap analysis, or preparing a security
+    questionnaire, when a customer asks for it.
+  </p>
+
+  <h2>Who and when</h2>
+  <p>
+    For a Dutch SaaS firm, IT provider or MSP. The trigger is a customer's
+    date or a tender: ISO 27001, or completing a security questionnaire.
+  </p>
+
+  <h2>Contents</h2>
+  <p>
+    Document review, interviews, and a gap register. If the trigger is a
+    security questionnaire, a prepared or completed list, as far as the
+    documents allow.
+  </p>
+
+  <h2>Indicative band</h2>
+  <p>
+    Gap scan or questionnaire scan: {scan} excl. VAT. {PRIJSNOTA.en}
+  </p>
+
+  <h2>What can follow</h2>
+  <p>
+    A next step can be to outsource the ISO 27001 internal audit: an
+    independent internal audit (not a certification audit), indicative {audit}
+    excl. VAT. {PRIJSNOTA.en} That is context, not a second button.
+  </p>
+  <p>
+    An AVG baseline on the same system is one further piece of work,
+    indicative {avg} excl. VAT. {PRIJSNOTA.en} There is no separate page for it.
+  </p>
+  <p>
+    Support with ISO 27001 implementation sits indicatively at {implementatie}
+    excl. VAT. {PRIJSNOTA.en} That is also context, not a menu.
+  </p>
+  <p>
+    A retainer for follow-up sits indicatively at {retainer} per month excl.
+    VAT. {PRIJSNOTA.en}
+  </p>
+
+  <h2>Independence</h2>
+  <p>
+    I never certify my own work. The person who implements is never the
+    internal auditor for the same client. I do not issue a certificate.
+    Accredited certification bodies do that. I do not judge the statute and I
+    do not issue an accountant's report.
+  </p>
+
+  <p><a class="knop" href="/en/contact/">{TEKST.en.cta}</a></p>
+</Base>

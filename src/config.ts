@@ -6,8 +6,11 @@ export const SITE = {
   naam: "Haldrecht",
   woordmerk: "HALDRECHT",
   descriptor: "Regulatory Affairs & Assurance",
-  /* haldrecht.nl and haldrecht.com are not registered. Keep this placeholder. */
+  /* haldrecht.com is registered at Squarespace. It is not connected.
+     Canonical URLs stay on this placeholder. Do not set DNS from here. */
   domein: "example.nl",
+  /* De lanceringstekst is een concept. De Product Owner heeft hem niet goedgekeurd. */
+  concept: true,
 
   /* Vul in zodra bekend. Leeg laten is beter dan verzinnen: een onjuist
      KvK-nummer op een site die over naleving gaat is een slechte grap. */
@@ -19,43 +22,69 @@ export const SITE = {
 
   persoon: {
     naam: "Ramon Sanders",
-    rol: "Adviseur markttoegang en compliance",
+    rol: "ISO 27001-voorbereiding en interne audit",
   },
 } as const;
 
 export const TEKST = {
   nl: {
     taalnaam: "Nederlands",
-    kop: "Binnenkomen bij opdrachtgevers die nu buiten bereik liggen",
+    kop: "Uw klant vraagt om ISO 27001 of een ingevulde security questionnaire.",
     pitch:
-      "Veel bedrijven verliezen opdrachten die ze hadden kunnen winnen, omdat " +
-      "ze worden afgewezen voordat iemand naar hun aanbod heeft gekeken. Ik " +
-      "zorg dat ze die poort door komen.",
+      "Concept, niet goedgekeurd. Ik help Nederlandse software- en IT-bedrijven " +
+      "een klanteis om te zetten in een systeem dat een interne audit kan volgen. " +
+      "Ik certificeer mijn eigen werk niet.",
     nav: {
-      diensten: "Diensten",
-      artikelen: "Artikelen",
-      kaart: "Kaart",
+      home: "Home",
+      aanleiding: "Aanleiding",
+      aanbod: "Aanbod",
       over: "Over",
       contact: "Contact",
     },
-    cta: "Gesprek aanvragen",
+    cta: "Intake voor een gap-scan aanvragen",
   },
   en: {
     taalnaam: "English",
-    kop: "Getting in with buyers that are out of reach today",
+    kop: "Your customer is asking for ISO 27001 or a completed security questionnaire.",
     pitch:
-      "Many companies lose contracts they could have won, because they are " +
-      "ruled out before anyone reads what they offered. I get them through " +
-      "that gate.",
+      "Concept, not approved. I help Dutch software and IT firms turn a customer " +
+      "demand into a system an internal audit can follow. I never certify my own work.",
     nav: {
-      diensten: "Services",
-      artikelen: "Articles",
-      kaart: "Map",
+      home: "Home",
+      aanleiding: "The demand",
+      aanbod: "The offer",
       over: "About",
       contact: "Contact",
     },
-    cta: "Request a conversation",
+    cta: "Request a gap-scan intake",
   },
 } as const;
 
 export type Taal = keyof typeof TEKST;
+
+/* Eén plek voor de banden. Ze zijn niet marktgetest en geen vaste prijzen. */
+export const PRIJZEN = {
+  getest: false,
+  gapScan: { min: 1500, max: 3500 },
+  interneAudit: { min: 1500, max: 3500 },
+  avg: { min: 3000, max: 5000 },
+  implementatie: { min: 8000, max: 18000 },
+  retainerMaand: { min: 800, max: 1800 },
+} as const;
+
+export const PRIJSNOTA = {
+  nl: "Indicatief. Niet marktgetest. Exclusief btw. Afhankelijk van de scope.",
+  en: "Indicative. Not market-tested. Excluding VAT. Dependent on scope.",
+} as const;
+
+export function prijsband(
+  band: { min: number; max: number },
+  taal: Taal,
+): string {
+  const fmt = new Intl.NumberFormat(taal === "nl" ? "nl-NL" : "en-GB", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  });
+  return `${fmt.format(band.min)}–${fmt.format(band.max)}`;
+}

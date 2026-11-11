@@ -57,10 +57,16 @@ wat er tussen jou en de opdracht staat.
 Vaktermen mogen vallen — ze bewijzen vakkennis — maar nooit in de eerste zin
 en nooit in een kop.
 
-Uitzondering: `/diensten/`. Die pagina's bestaan om gevonden te worden op de
-naam van de eis (ISO 45001, RTGB, B Corp, en de rest in `src/data/diensten.ts`).
-Daar staat de zoekterm in de titel, de kop en de metabeschrijving. Home en
-artikelen blijven de regel hierboven volgen.
+Uitzondering, lancering: home, `/klant-eist-iso-27001/` en
+`/iso-27001-gap-scan/` (en de Engelse tegenhangers) openen met de klanteis
+ISO 27001 of een security questionnaire. Dat is de propositie. De oude
+regel geldt niet voor die pagina's.
+
+`/diensten/` en `/artikelen/` staan op `noindex` en niet in het menu. Of ze
+een 301 krijgen, is een open keuze. `/kaart` en `/scan` worden niet gebouwd.
+Het conceptartikel blijft uit de productiebuild. `catalogus.ts` wordt niet
+meer als OfferCatalog op elke pagina gezet. De zoektermen `externe ISO auditor`
+en `interne auditor inhuren` blijven in dat bestand staan.
 
 ## Structuur
 
@@ -153,9 +159,18 @@ Niet ongevraagd een nieuwe database of pagina aanmaken. Deze bestaat.
 - De firmanaam staat in `src/config.ts`: `naam` is Haldrecht, `woordmerk` is
   HALDRECHT, `descriptor` is Regulatory Affairs & Assurance. Het kop- en
   voetmerk lezen het woordmerk. Domein en e-mail blijven een placeholder
-  (`example.nl`, leeg e-mailadres). haldrecht.nl en haldrecht.com zijn niet
-  geregistreerd; zet ze niet in de config. Het gespreksformulier opent het
-  mailprogramma van de bezoeker zodra `SITE.email` is ingevuld. Tot die tijd
-  zegt de contactpagina dat het adres er nog niet is.
+  (`example.nl`, leeg e-mailadres). haldrecht.com staat bij Squarespace
+  geregistreerd en is niet gekoppeld. haldrecht.nl is niet gekoppeld. Zet
+  geen van beide in de config en niet in DNS. De intake op `/contact/` staat
+  uit zolang `SITE.email` leeg is: het formulier verstuurt nergens heen.
 - Het eerste artikel staat op `status: concept` tot het stemprofiel er is.
   Concepten zijn zichtbaar in `npm run dev` en ontbreken in `npm run build`.
+- De lanceringstekst is een concept (`SITE.concept`). Open vragen, niet
+  beantwoord: goedkeuring van de propositie; of de ongeteste prijsbanden op
+  de aanbodpagina mogen; praktijkmail en reactietermijn; wanneer KvK en
+  rechtsvorm in de voet mogen; of de oude QHSE-zin over geslaagde
+  certificeringen mag blijven; wanneer Lead Auditor en CIPP/E verwacht
+  worden; of Engels bij de lancering mee mag; of "assurance" in de descriptor
+  een accountantsrapport suggereert; of de naam Haldrecht Register zichtbaar
+  mag zijn. De zin over eerdere QHSE-certificeringen staat nog op Over en
+  wacht op toestemming. Haldrecht Register staat niet op de site.

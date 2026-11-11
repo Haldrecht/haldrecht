@@ -1,21 +1,27 @@
 ---
 import Base from "../../layouts/Base.astro";
-import GesprekForm from "../../components/GesprekForm.astro";
+import Intake from "../../components/Intake.astro";
 ---
 
 <Base
-  titel="Contact"
-  beschrijving="A short conversation about where your company is being ruled out."
+  titel="Intake for a gap scan"
+  beschrijving="Intake for an ISO 27001 gap scan. The form sends nothing until there is a practice email."
   taal="en"
   lees
 >
-  <h1>Request a conversation</h1>
+  <h1>Intake for a gap scan</h1>
   <p class="lead">
-    Not a sales call. Half an hour to establish where you are being ruled out,
-    and whether that is something that can be fixed.
+    A short form about the demand, the date, and what already exists. The
+    first conversation does not complete the list and does not issue a
+    certificate.
   </p>
+  <Intake taal="en" />
 
-  <h2>Useful to know beforehand</h2>
-  <p>Answer these five and the conversation is useful from the first minute.</p>
-  <GesprekForm taal="en" />
+  <h2>Privacy</h2>
+  <p>
+    This site sets no cookies, uses no trackers and loads no external fonts.
+    The form above sends nothing and stores nothing. There is no practice
+    email yet. A company number and a VAT number are not shown, because they
+    have not been cleared for publication.
+  </p>
 </Base>

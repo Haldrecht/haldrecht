@@ -1,20 +1,19 @@
 import type { APIRoute } from "astro";
-import { dienstPaden } from "../data/diensten";
-import { artikelPad, nederlandseArtikelen } from "../lib/artikelen";
 
-/* Zelfde filter als de pagina's: een concept hoort niet in de sitemap
-   van de productiebuild. Vaste pagina's, geen pakket. */
+/* Alleen de lancering. De oude catalogus en de artikelen zijn noindex
+   en horen niet in de sitemap. /kaart en /scan bestaan niet. */
 
 const PAGINAS = [
   "/",
   "/en/",
-  "/artikelen/",
-  "/en/artikelen/",
+  "/klant-eist-iso-27001/",
+  "/en/klant-eist-iso-27001/",
+  "/iso-27001-gap-scan/",
+  "/en/iso-27001-gap-scan/",
   "/over/",
   "/en/over/",
   "/contact/",
   "/en/contact/",
-  ...dienstPaden(),
 ];
 
 function escapeXml(waarde: string): string {
@@ -32,8 +31,7 @@ export const GET: APIRoute = async ({ site }) => {
     );
   }
 
-  const artikelen = await nederlandseArtikelen();
-  const paden = [...PAGINAS, ...artikelen.map((a) => artikelPad(a.id))];
+  const paden = [...PAGINAS];
   const urls = paden
     .map((pad) => `  <url><loc>${escapeXml(new URL(pad, site).href)}</loc></url>`)
     .join("\n");

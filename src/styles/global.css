@@ -373,6 +373,15 @@ main.lees .lead { color: var(--variant); }
 main.lees .meta { color: var(--zacht); }
 main.lees a { color: var(--inkt); text-decoration-color: var(--koper); }
 main.lees h1 { font-size: clamp(2.4rem, 4.5vw, 3.6rem); }
+.concept {
+  margin: 0 0 1.25rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+main.lees .concept { color: var(--zacht); }
+form.gesprek fieldset[disabled] { opacity: 0.72; }
+footer.site .privacy-noot { flex-basis: 100%; margin: 8px 0 0; }
 
 details.catalogus {
   margin-top: 3rem;

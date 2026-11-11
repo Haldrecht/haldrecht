@@ -1,8 +1,7 @@
-/* De lange dienstencatalogus. Zichtbaar alleen dichtgeklapt op /diensten/.
-   Op elke pagina staat dezelfde lijst als OfferCatalog in JSON-LD, zodat
-   een zoeker de termen kan vinden zonder dat de pagina een checklist wordt.
-   C, S en F blijven de markering uit de bron. Ze worden niet hernoemd:
-   de bron zegt niet wat de letters betekenen, en een gok zou een claim zijn. */
+/* De lange dienstencatalogus. Dichtgeklapt op /diensten/, en die pagina
+   is noindex. Niet meer als OfferCatalog op de lancering. C, S en F blijven
+   de markering uit de bron. Ze worden niet hernoemd: de bron zegt niet wat
+   de letters betekenen, en een gok zou een claim zijn. */
 
 export type Rol = "C" | "S" | "F";
 
