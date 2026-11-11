@@ -3,50 +3,43 @@ import Base from "../../layouts/Base.astro";
 import { TEKST } from "../../config";
 
 const t = TEKST.en;
+const beschrijving =
+  "ISO 27001 for a Dutch SaaS, IT or MSP firm. I turn a customer demand into a system an internal audit can follow. I never certify my own work.";
 ---
 
-<Base titel={t.kop} beschrijving={t.pitch} taal="en">
-  <section class="hero">
-    <div class="hero-kop">
-      <h1>Getting in with buyers that are<br><span class="accent">out of reach today</span></h1>
-      <div>
-        <p class="lead">{t.pitch}</p>
-        <a class="knop" href="/en/contact/">{t.cta}</a>
-      </div>
-    </div>
-    <canvas class="beeld" aria-hidden="true"></canvas>
-  </section>
+<Base titel={t.kop} beschrijving={beschrijving} taal="en" lees>
+  <h1>{t.kop}</h1>
+  <p class="lead">
+    I help Dutch software and IT firms turn enterprise security and privacy
+    requirements into an auditable system, and I never certify my own work.
+    The person who implements is never the internal auditor for the same client.
+  </p>
 
-  <section class="band band-licht">
-    <div class="raster">
-      <section class="kaart">
-        <h2>Who this is for</h2>
-        <p>
-          Companies that supply governments or large buyers, or want to. They run
-          into a barrier that has nothing to do with how good their work is, and no
-          clear sense of where that barrier actually sits.
-        </p>
-      </section>
-      <section class="kaart">
-        <h2>What I do</h2>
-        <p>
-          I turn the requirements a buyer or a contracting authority imposes into
-          processes that work and that survive an external audit. Not a folder of
-          paper: a way of working that holds up and can be evidenced.
-        </p>
-        <p>
-          Previously I built integrated quality, safety and environmental management
-          systems for small and mid-sized companies. Every client taken through to
-          external certification passed.
-        </p>
-        <p><a href="/en/diensten/">The services</a>, one requirement at a time.</p>
-      </section>
-    </div>
-    <div class="binnen">
-    <p class="noot">
-      Articles are published in Dutch. The Dutch tendering data they draw on has
-    no English equivalent, so translating them would mean losing the evidence.
-    </p>
-    </div>
-  </section>
+  <h2>Who it is for</h2>
+  <p>
+    A Dutch B2B SaaS firm, IT provider or MSP, about 10 to 80 people. The
+    buyer is the founder, the COO, or the first person hired for security.
+  </p>
+
+  <h2>The trigger</h2>
+  <p>
+    An enterprise customer, or a tender, requires ISO 27001 or a completed
+    security questionnaire by a date.
+  </p>
+
+  <h2>What I do and what I do not do</h2>
+  <p>
+    I do the gap scan or the security questionnaire, an independent internal
+    audit (not a certification audit), or the implementation. Haldrecht never
+    internally audits an ISMS it built. I do not issue a certificate and I do
+    not judge the statute. Assurance in the descriptor is not an accountant's
+    assurance report.
+  </p>
+  <p>
+    NIS2 supplier evidence can later rest on the same system. It is not a
+    second offer.
+  </p>
+
+  <p><a class="knop" href="/en/contact/">{t.cta}</a></p>
+  <p><a href="/en/over/">The limits are on About.</a></p>
 </Base>

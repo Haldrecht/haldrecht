@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+import { TEKST } from "../config";
+
+const titel = "Klant eist ISO 27001 of een security questionnaire";
+const beschrijving =
+  "Een klant vraagt ISO 27001 of een security questionnaire. Wat er meestal ontbreekt, en wat een gap-scan oplevert. Geen certificaat en geen accountantsrapport.";
+---
+
+<Base titel={titel} beschrijving={beschrijving} taal="nl" lees>
+  <h1>{titel}</h1>
+  <p class="lead">
+    Een klant vraagt ISO 27001, of een klant vraagt een security questionnaire,
+    en er staat een datum onder.
+  </p>
+
+  <h2>De situatie</h2>
+  <p>
+    De vraag komt van een enterprise-klant of uit een aanbesteding. Hij gaat
+    over ISO 27001 voor een SaaS-bedrijf, een IT-dienstverlener of een MSP, of
+    over het invullen van een security questionnaire.
+  </p>
+
+  <h2>Wat er meestal ontbreekt</h2>
+  <p>
+    Het beleid, het risicoregister en het bewijs sluiten niet op elkaar aan.
+    De vragenlijst is leeg, of de antwoorden zijn niet te herleiden naar een
+    document dat nog klopt.
+  </p>
+
+  <h2>Wat de scan oplevert</h2>
+  <p>
+    Een gap-register en een advies over de volgende stap. Als de aanleiding een
+    security questionnaire is, hoort daar een voorbereide of ingevulde lijst
+    bij, voor zover de stukken dat toelaten.
+  </p>
+
+  <h2>Grenzen</h2>
+  <p>
+    Ik geef geen certificaat af. Geaccrediteerde certificerende instellingen
+    doen dat. Ik geef geen oordeel over de wet. Assurance in de ondertitel is
+    geen accountantsrapport. Haldrecht voert geen interne audit uit op een
+    ISMS dat het zelf heeft gebouwd.
+  </p>
+
+  <h2>Kort</h2>
+  <p>
+    Hoe lang het duurt, hangt af van wat er al ligt en van de deadline. Dat
+    staat niet vast tot de intake. U levert de vraag in de woorden van de
+    klant, de datum, en wat er al hergebruikt kan worden.
+  </p>
+  <p>
+    Implementatie en een onafhankelijke interne audit (geen certificatie-audit) zijn twee vervolgstappen,
+    niet dezelfde persoon voor dezelfde klant.
+  </p>
+
+  <p><a class="knop" href="/contact/">{TEKST.nl.cta}</a></p>
+</Base>

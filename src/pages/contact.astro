@@ -1,21 +1,26 @@
 ---
 import Base from "../layouts/Base.astro";
-import GesprekForm from "../components/GesprekForm.astro";
+import Intake from "../components/Intake.astro";
 ---
 
 <Base
-  titel="Contact"
-  beschrijving="Een kort gesprek over waar jouw bedrijf nu op afvalt."
+  titel="Intake voor een gap-scan"
+  beschrijving="Intake voor een ISO 27001 gap-scan. Het formulier verstuurt niets zolang er geen praktijkadres is."
   taal="nl"
   lees
 >
-  <h1>Gesprek aanvragen</h1>
+  <h1>Intake voor een gap-scan</h1>
   <p class="lead">
-    Geen verkooppraatje. Een half uur waarin we vaststellen waar het bij jou
-    vastloopt, en of dat iets is dat te verhelpen valt.
+    Een kort formulier over de eis, de datum en wat er al ligt. Het eerste
+    gesprek vult de lijst niet in en geeft geen certificaat af.
   </p>
+  <Intake taal="nl" />
 
-  <h2>Wat ik van tevoren wil weten</h2>
-  <p>Als je deze vijf dingen alvast beantwoordt, is het gesprek meteen nuttig.</p>
-  <GesprekForm taal="nl" />
+  <h2>Privacy</h2>
+  <p>
+    Deze site zet geen cookies, gebruikt geen trackers en laadt geen externe
+    lettertypen. Het formulier hierboven verstuurt niets en bewaart niets. Er
+    is nog geen praktijkadres. KvK-nummer en btw-nummer staan hier niet, omdat
+    ze nog niet zijn vrijgegeven.
+  </p>
 </Base>

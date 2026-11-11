@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { catalogusLd } from "../data/catalogus";
 import { SITE, TEKST, type Taal } from "../config";
 
 interface Props {
@@ -16,6 +15,8 @@ interface Props {
   lees?: boolean;
   /* Alleen op een artikel. Geen waardering, geen datum die niet in het stuk staat. */
   jsonLd?: Record<string, unknown>;
+  /* Oude catalogus en artikelen blijven bereikbaar, maar niet in de index. */
+  noindex?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   andere,
   lees = false,
   jsonLd,
+  noindex = false,
 } = Astro.props;
 const t = TEKST[taal];
 const p = taal === "nl" ? "" : "/en";
@@ -37,9 +39,6 @@ const documentTitel = `${titel} · ${SITE.naam}`;
 /* < in een JSON-string mag de scripttag niet sluiten. */
 const jsonLdHtml = jsonLd
   ? JSON.stringify(jsonLd).replaceAll("<", "\\u003c")
-  : "";
-const catalogusHtml = Astro.site
-  ? JSON.stringify(catalogusLd(Astro.site, taal)).replaceAll("<", "\\u003c")
   : "";
 
 function zelfdePad(href: string) {
@@ -55,15 +54,13 @@ function zelfdePad(href: string) {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{documentTitel}</title>
     {beschrijving && <meta name="description" content={beschrijving} />}
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canoniek} />
     <meta property="og:title" content={documentTitel} />
     {beschrijving && <meta property="og:description" content={beschrijving} />}
     <meta property="og:url" content={canoniek.href} />
     {jsonLdHtml && (
       <script is:inline type="application/ld+json" set:html={jsonLdHtml} />
-    )}
-    {catalogusHtml && (
-      <script is:inline type="application/ld+json" set:html={catalogusHtml} />
     )}
     {
       hreflang && (
@@ -84,14 +81,15 @@ function zelfdePad(href: string) {
           <span class="onderschrift">{SITE.descriptor}</span>
         </a>
         <nav>
+          <a href={p + "/"} aria-current={zelfdePad(p + "/") ? "page" : undefined}>{t.nav.home}</a>
           <a
-            href={p + "/diensten/"}
-            aria-current={Astro.url.pathname.includes("/diensten") ? "page" : undefined}
-          >{t.nav.diensten}</a>
+            href={p + "/klant-eist-iso-27001/"}
+            aria-current={zelfdePad(p + "/klant-eist-iso-27001/") ? "page" : undefined}
+          >{t.nav.aanleiding}</a>
           <a
-            href={p + "/artikelen/"}
-            aria-current={Astro.url.pathname.includes("/artikelen") ? "page" : undefined}
-          >{t.nav.artikelen}</a>
+            href={p + "/iso-27001-gap-scan/"}
+            aria-current={zelfdePad(p + "/iso-27001-gap-scan/") ? "page" : undefined}
+          >{t.nav.aanbod}</a>
           <a
             href={p + "/over/"}
             aria-current={zelfdePad(p + "/over/") ? "page" : undefined}
@@ -107,6 +105,9 @@ function zelfdePad(href: string) {
 
     <main class={lees ? "lees" : undefined}>
       <div class="wrap">
+        {SITE.concept && (
+          <p class="concept">{taal === "nl" ? "Concept. Niet goedgekeurd." : "Concept. Not approved."}</p>
+        )}
         <slot />
       </div>
     </main>
@@ -121,6 +122,11 @@ function zelfdePad(href: string) {
           {SITE.persoon.naam}
           {SITE.kvk && <> · KvK {SITE.kvk}</>}
           {SITE.email && <> · <a href={`mailto:${SITE.email}`}>{SITE.email}</a></>}
+        </p>
+        <p class="privacy-noot">
+          {taal === "nl"
+            ? "Geen cookies, geen trackers, geen externe lettertypen."
+            : "No cookies, no trackers, no external fonts."}
         </p>
       </div>
     </footer>

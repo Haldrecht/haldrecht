@@ -1,0 +1,75 @@
+---
+/* Geen praktijkadres: het formulier staat uit en verstuurt nergens heen.
+   Geen formulierdienst, geen cookie. */
+import type { Taal } from "../config";
+
+interface Props {
+  taal: Taal;
+}
+
+const { taal } = Astro.props;
+
+const copy = {
+  nl: {
+    uitleg:
+      "Het formulier staat uit. Er is nog geen praktijkadres, dus er wordt niets verstuurd en er gaat niets naar een derde partij.",
+    termijn: "De reactietermijn is nog niet vastgesteld.",
+    niet:
+      "Het eerste gesprek belooft geen certificaat, geen accountantsrapport en geen ingevulde lijst ter plekke.",
+    velden: [
+      ["naam", "Naam"],
+      ["organisatie", "Organisatie"],
+      ["rol", "Rol: oprichter, COO, eerste security-aanstelling, of anders"],
+      ["email", "E-mail"],
+      ["telefoon", "Telefoon, optioneel"],
+      ["vanwie", "Van wie de eis komt"],
+      ["eis", "De eis in hun woorden"],
+      ["datum", "De deadline"],
+      ["gemist", "Wat er gebeurt als de datum wordt gemist"],
+      ["hergebruik", "Wat er al ligt dat hergebruikt kan worden"],
+      ["tekent", "Wie tekent"],
+    ] as const,
+  },
+  en: {
+    uitleg:
+      "The form is off. There is no practice email yet, so nothing is sent and nothing goes to a third party.",
+    termijn: "The response time is not set.",
+    niet:
+      "The first conversation does not promise a certificate, an accountant's report, or a completed list on the spot.",
+    velden: [
+      ["name", "Name"],
+      ["organisation", "Organisation"],
+      ["role", "Role: founder, COO, first security hire, or other"],
+      ["email", "Email"],
+      ["phone", "Phone, optional"],
+      ["from", "Who the demand comes from"],
+      ["demand", "The demand in their words"],
+      ["deadline", "The deadline"],
+      ["missed", "What happens if the date is missed"],
+      ["reuse", "What already exists that can be reused"],
+      ["signs", "Who signs"],
+    ] as const,
+  },
+}[taal];
+---
+
+<p>{copy.uitleg}</p>
+<p>{copy.termijn}</p>
+<p>{copy.niet}</p>
+<form class="gesprek" aria-disabled="true">
+  <fieldset disabled>
+    {copy.velden.map(([id, label]) => (
+      <div>
+        <label for={`${taal}-${id}`}>{label}</label>
+        {id === "eis" || id === "demand" || id === "gemist" || id === "missed" || id === "hergebruik" || id === "reuse" ? (
+          <textarea id={`${taal}-${id}`} name={id} rows="3" />
+        ) : (
+          <input id={`${taal}-${id}`} name={id} type="text" />
+        )}
+      </div>
+    ))}
+    <button class="knop" type="button" disabled>
+      {taal === "nl" ? "Versturen staat uit" : "Sending is off"}
+    </button>
+  </fieldset>
+</form>

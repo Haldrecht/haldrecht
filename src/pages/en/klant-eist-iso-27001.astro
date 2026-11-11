@@ -1,0 +1,58 @@
+---
+import Base from "../../layouts/Base.astro";
+import { TEKST } from "../../config";
+
+const titel = "A customer requires ISO 27001 or a security questionnaire";
+const beschrijving =
+  "A customer asks for ISO 27001 or a security questionnaire. What is usually missing, and what a gap scan delivers. No certificate and no accountant's report.";
+---
+
+<Base titel={titel} beschrijving={beschrijving} taal="en" lees>
+  <h1>{titel}</h1>
+  <p class="lead">
+    A customer asks for ISO 27001, or a customer asks for a security
+    questionnaire, and there is a date under it.
+  </p>
+
+  <h2>The situation</h2>
+  <p>
+    The demand comes from an enterprise customer or from a tender. It is about
+    ISO 27001 for a SaaS firm, an IT provider or an MSP, or about completing a
+    security questionnaire.
+  </p>
+
+  <h2>What is usually missing</h2>
+  <p>
+    The policy, the risk register and the evidence do not meet. The
+    questionnaire is empty, or the answers cannot be traced to a document that
+    is still true.
+  </p>
+
+  <h2>What the scan delivers</h2>
+  <p>
+    A gap register and advice on the next step. If the trigger is a security
+    questionnaire, that includes a prepared or completed list, as far as the
+    documents allow.
+  </p>
+
+  <h2>Limits</h2>
+  <p>
+    I do not issue a certificate. Accredited certification bodies do that. I
+    do not judge the statute. Assurance in the descriptor is not an
+    accountant's assurance report. Haldrecht never internally audits an ISMS
+    it built.
+  </p>
+
+  <h2>In short</h2>
+  <p>
+    How long it takes depends on what already exists and on the deadline. That
+    is not fixed until the intake. You supply the demand in the customer's
+    words, the date, and what can be reused.
+  </p>
+  <p>
+    Implementation and an independent internal audit (not a certification audit) are two next steps, not
+    the same person for the same client.
+  </p>
+
+  <p><a class="knop" href="/en/contact/">{TEKST.en.cta}</a></p>
+</Base>
