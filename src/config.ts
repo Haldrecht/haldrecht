@@ -62,29 +62,10 @@ export const TEKST = {
 
 export type Taal = keyof typeof TEKST;
 
-/* Eén plek voor de banden. Ze zijn niet marktgetest en geen vaste prijzen. */
+/* Eén gepubliceerde instap. Geen andere bedragen op de site. */
 export const PRIJZEN = {
-  getest: false,
-  gapScan: { min: 1500, max: 3500 },
-  interneAudit: { min: 1500, max: 3500 },
-  avg: { min: 3000, max: 5000 },
-  implementatie: { min: 8000, max: 18000 },
-  retainerMaand: { min: 800, max: 1800 },
+  instap: {
+    nl: "vanaf €1.950 excl. btw, vaste prijs na intake",
+    en: "from €1,950 excl. VAT, fixed price after intake",
+  },
 } as const;
-
-export const PRIJSNOTA = {
-  nl: "Indicatief. Niet marktgetest. Exclusief btw. Afhankelijk van de scope.",
-  en: "Indicative. Not market-tested. Excluding VAT. Dependent on scope.",
-} as const;
-
-export function prijsband(
-  band: { min: number; max: number },
-  taal: Taal,
-): string {
-  const fmt = new Intl.NumberFormat(taal === "nl" ? "nl-NL" : "en-GB", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  });
-  return `${fmt.format(band.min)}–${fmt.format(band.max)}`;
-}

@@ -159,15 +159,15 @@ Niet ongevraagd een nieuwe database of pagina aanmaken. Deze bestaat.
 - De firmanaam staat in `src/config.ts`: `naam` is Haldrecht, `woordmerk` is
   HALDRECHT, `descriptor` is Regulatory Affairs & Assurance. Het kop- en
   voetmerk lezen het woordmerk. Domein en e-mail blijven een placeholder
-  (`example.nl`, leeg e-mailadres). haldrecht.com staat bij Squarespace
-  geregistreerd en is niet gekoppeld. haldrecht.nl is niet gekoppeld. Zet
-  geen van beide in de config en niet in DNS. De intake op `/contact/` staat
+  (`example.nl`, leeg e-mailadres). Het enige domein is haldrecht.com, bij
+  Squarespace geregistreerd en niet gekoppeld. Zet het niet in de config en
+  niet in DNS. De intake op `/contact/` staat
   uit zolang `SITE.email` leeg is: het formulier verstuurt nergens heen.
 - Het eerste artikel staat op `status: concept` tot het stemprofiel er is.
   Concepten zijn zichtbaar in `npm run dev` en ontbreken in `npm run build`.
 - De lanceringstekst is een concept (`SITE.concept`). Open vragen, niet
-  beantwoord: goedkeuring van de propositie; of de ongeteste prijsbanden op
-  de aanbodpagina mogen; praktijkmail en reactietermijn; wanneer KvK en
+  beantwoord: goedkeuring van de propositie; praktijkmail en reactietermijn;
+  wanneer KvK en
   rechtsvorm in de voet mogen; of de oude QHSE-zin over geslaagde
   certificeringen mag blijven; wanneer Lead Auditor en CIPP/E verwacht
   worden; of Engels bij de lancering mee mag; of "assurance" in de descriptor

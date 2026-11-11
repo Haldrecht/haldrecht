@@ -4,7 +4,7 @@ Regulatory Affairs & Assurance. Static site in Astro.
 
 The public name is Haldrecht. The header and footer wordmark is HALDRECHT. `package.json` still says `groundwork-site`. That is the package name, not the firm name.
 
-`haldrecht.nl` and `haldrecht.com` are not registered. Canonical URLs stay on `https://example.nl` until a domain is chosen. Do not point this project at those names.
+The only domain is `haldrecht.com`. It is registered at Squarespace and is not connected. Canonical URLs stay on `https://example.nl`. Do not set DNS from this project.
 
 ## Run
 

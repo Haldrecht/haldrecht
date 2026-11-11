@@ -1,15 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
-import { PRIJSNOTA, PRIJZEN, TEKST, prijsband } from "../config";
+import { PRIJZEN, TEKST } from "../config";
 
 const titel = "ISO 27001 gap-scan en security questionnaire";
 const beschrijving =
-  "ISO 27001 gap analyse voor een SaaS-bedrijf, IT-dienstverlener of MSP. Inclusief security questionnaire invullen als dat de aanleiding is. Indicatieve band, niet marktgetest.";
-const scan = prijsband(PRIJZEN.gapScan, "nl");
-const audit = prijsband(PRIJZEN.interneAudit, "nl");
-const avg = prijsband(PRIJZEN.avg, "nl");
-const implementatie = prijsband(PRIJZEN.implementatie, "nl");
-const retainer = prijsband(PRIJZEN.retainerMaand, "nl");
+  `ISO 27001 gap analyse voor een SaaS-bedrijf, IT-dienstverlener of MSP. Inclusief security questionnaire invullen als dat de aanleiding is. ${PRIJZEN.instap.nl}.`;
 ---
 
 <Base titel={titel} beschrijving={beschrijving} taal="nl" lees>
@@ -21,9 +16,9 @@ const retainer = prijsband(PRIJZEN.retainerMaand, "nl");
 
   <h2>Voor wie en wanneer</h2>
   <p>
-    Voor een Nederlands SaaS-bedrijf, een IT-dienstverlener of een MSP. De
-    aanleiding is een datum van een klant of een aanbesteding: ISO 27001, of
-    een security questionnaire invullen.
+    Voor een Nederlandse organisatie van 10 tot 40 fte: een SaaS-bedrijf, een
+    IT-dienstverlener of een MSP. De aanleiding is een datum van een klant of
+    een aanbesteding: ISO 27001, of een security questionnaire invullen.
   </p>
 
   <h2>Inhoud</h2>
@@ -33,36 +28,27 @@ const retainer = prijsband(PRIJZEN.retainerMaand, "nl");
     de stukken dat toelaten.
   </p>
 
-  <h2>Indicatieve band</h2>
+  <h2>Prijs</h2>
   <p>
-    Gap-scan of questionnaire-scan: {scan} excl. btw. {PRIJSNOTA.nl}
+    Gap-scan of het security-questionnaire-traject: {PRIJZEN.instap.nl}. Voor
+    organisaties van 10 tot 40 fte.
   </p>
 
   <h2>Wat daarna kan</h2>
   <p>
     Een vervolgstap kan ISO 27001 interne audit uitbesteden zijn: een
-    onafhankelijke interne audit (geen certificatie-audit), indicatief {audit}
-    excl. btw. {PRIJSNOTA.nl} Dat is context, geen tweede knop.
-  </p>
-  <p>
-    Een AVG-basislijn op hetzelfde systeem is een volgende alinea werk,
-    indicatief {avg} excl. btw. {PRIJSNOTA.nl} Daar is geen eigen pagina voor.
-  </p>
-  <p>
-    Ondersteuning bij de implementatie van ISO 27001 ligt indicatief op
-    {implementatie} excl. btw. {PRIJSNOTA.nl} Ook dat is context, geen menu.
-  </p>
-  <p>
-    Een retainer voor opvolging ligt indicatief op {retainer} per maand excl.
-    btw. {PRIJSNOTA.nl}
+    onafhankelijke interne audit (geen certificatie-audit). Een AVG-basislijn
+    op hetzelfde systeem, ondersteuning bij de implementatie, of een retainer
+    voor opvolging kan daarna. Daar staat geen prijs bij. De volgende stap is
+    de intake.
   </p>
 
   <h2>Onafhankelijkheid</h2>
   <p>
-    Ik certificeer mijn eigen werk niet. Wie implementeert, is voor dezelfde
-    klant nooit de interne auditor. Ik geef geen certificaat af. Geaccrediteerde
-    certificerende instellingen doen dat. Ik geef geen oordeel over de wet en
-    geen accountantsrapport.
+    Haldrecht voert geen interne audit uit op een ISMS dat het zelf heeft
+    gebouwd. Ik geef geen certificaat af. Geaccrediteerde certificerende
+    instellingen doen dat. Ik geef geen oordeel over de wet. Assurance in de
+    ondertitel is geen accountantsrapport.
   </p>
 
   <p><a class="knop" href="/contact/">{TEKST.nl.cta}</a></p>
