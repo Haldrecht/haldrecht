@@ -1,0 +1,52 @@
+---
+import Base from "../../layouts/Base.astro";
+import { TEKST } from "../../config";
+
+const t = TEKST.en;
+---
+
+<Base titel={t.kop} beschrijving={t.pitch} taal="en">
+  <section class="hero">
+    <div class="hero-kop">
+      <h1>Getting in with buyers that are<br><span class="accent">out of reach today</span></h1>
+      <div>
+        <p class="lead">{t.pitch}</p>
+        <a class="knop" href="/en/contact/">{t.cta}</a>
+      </div>
+    </div>
+    <canvas class="beeld" aria-hidden="true"></canvas>
+  </section>
+
+  <section class="band band-licht">
+    <div class="raster">
+      <section class="kaart">
+        <h2>Who this is for</h2>
+        <p>
+          Companies that supply governments or large buyers, or want to. They run
+          into a barrier that has nothing to do with how good their work is, and no
+          clear sense of where that barrier actually sits.
+        </p>
+      </section>
+      <section class="kaart">
+        <h2>What I do</h2>
+        <p>
+          I turn the requirements a buyer or a contracting authority imposes into
+          processes that work and that survive an external audit. Not a folder of
+          paper: a way of working that holds up and can be evidenced.
+        </p>
+        <p>
+          Previously I built integrated quality, safety and environmental management
+          systems for small and mid-sized companies. Every client taken through to
+          external certification passed.
+        </p>
+        <p><a href="/en/diensten/">The services</a>, one requirement at a time.</p>
+      </section>
+    </div>
+    <div class="binnen">
+    <p class="noot">
+      Articles are published in Dutch. The Dutch tendering data they draw on has
+    no English equivalent, so translating them would mean losing the evidence.
+    </p>
+    </div>
+  </section>
+</Base>

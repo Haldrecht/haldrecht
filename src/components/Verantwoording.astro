@@ -1,0 +1,27 @@
+---
+/* Hoort onder elke pagina die cijfers uit eisen.json toont.
+   Dit is geen kleine lettertjes: de lezer die het scherpst kijkt is een
+   tenderadviseur, en dat is precies de verwijzer die we willen. */
+import bron from "../data/eisen.json";
+
+interface Props {
+  cpv?: string[];
+}
+const { cpv } = Astro.props;
+const m = bron.meta;
+const codes = cpv ?? m.cpvCodes;
+---
+
+<aside class="verantwoording">
+  <b>Verantwoording.</b> Bron: {m.bron}, periode {m.periodeVan} tot en met
+  {m.periodeTot}. CPV-codes: {codes.join(", ")}.
+  {m.publicaties} publicaties, {m.documenten} documenten.
+  Niet opgenomen: {m.nietOpgenomen}.
+  Laatst bijgewerkt: {m.bijgewerkt}.
+  {m.voorbeelddata && (
+    <>
+      <br /><b>Let op:</b> dit is voorbeelddata. De extractie draait nog;
+      publiceer deze cijfers niet.
+    </>
+  )}
+</aside>

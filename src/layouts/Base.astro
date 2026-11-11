@@ -1,0 +1,126 @@
+---
+import "../styles/global.css";
+import { catalogusLd } from "../data/catalogus";
+import { SITE, TEKST, type Taal } from "../config";
+
+interface Props {
+  titel: string;
+  beschrijving?: string;
+  taal?: Taal;
+  /* false op pagina's die alleen in het Nederlands bestaan, zoals een artikel.
+     Een hreflang naar een niet-bestaande Engelse URL is erger dan geen. */
+  hreflang?: boolean;
+  /* Bestemming van de taalwissel. Standaard hetzelfde pad in de andere taal. */
+  andere?: string;
+  /* Leesbreedte voor tekstpagina's. De home blijft de brede marketingmaat. */
+  lees?: boolean;
+  /* Alleen op een artikel. Geen waardering, geen datum die niet in het stuk staat. */
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  titel,
+  beschrijving = "",
+  taal = "nl",
+  hreflang = true,
+  andere,
+  lees = false,
+  jsonLd,
+} = Astro.props;
+const t = TEKST[taal];
+const p = taal === "nl" ? "" : "/en";
+
+const pad = Astro.url.pathname.replace(/^\/en/, "") || "/";
+const anderePad = andere ?? (taal === "nl" ? "/en" + pad : pad);
+const canoniek = new URL(Astro.url.pathname, Astro.site);
+const documentTitel = `${titel} · ${SITE.naam}`;
+/* < in een JSON-string mag de scripttag niet sluiten. */
+const jsonLdHtml = jsonLd
+  ? JSON.stringify(jsonLd).replaceAll("<", "\\u003c")
+  : "";
+const catalogusHtml = Astro.site
+  ? JSON.stringify(catalogusLd(Astro.site, taal)).replaceAll("<", "\\u003c")
+  : "";
+
+function zelfdePad(href: string) {
+  const norm = (s: string) => (s.length > 1 && s.endsWith("/") ? s.slice(0, -1) : s);
+  return norm(Astro.url.pathname) === norm(href);
+}
+---
+
+<!doctype html>
+<html lang={taal}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{documentTitel}</title>
+    {beschrijving && <meta name="description" content={beschrijving} />}
+    <link rel="canonical" href={canoniek} />
+    <meta property="og:title" content={documentTitel} />
+    {beschrijving && <meta property="og:description" content={beschrijving} />}
+    <meta property="og:url" content={canoniek.href} />
+    {jsonLdHtml && (
+      <script is:inline type="application/ld+json" set:html={jsonLdHtml} />
+    )}
+    {catalogusHtml && (
+      <script is:inline type="application/ld+json" set:html={catalogusHtml} />
+    )}
+    {
+      hreflang && (
+        <>
+          <link rel="alternate" hreflang="nl" href={new URL(pad, Astro.site)} />
+          <link rel="alternate" hreflang="en" href={new URL("/en" + pad, Astro.site)} />
+        </>
+      )
+    }
+  </head>
+
+  <body>
+    <canvas id="veld" class="veld" aria-hidden="true"></canvas>
+    <header class="site">
+      <div class="wrap">
+        <a class="merk" href={p + "/"}>{SITE.naam}</a>
+        <nav>
+          <a
+            href={p + "/diensten/"}
+            aria-current={Astro.url.pathname.includes("/diensten") ? "page" : undefined}
+          >{t.nav.diensten}</a>
+          <a
+            href={p + "/artikelen/"}
+            aria-current={Astro.url.pathname.includes("/artikelen") ? "page" : undefined}
+          >{t.nav.artikelen}</a>
+          <a
+            href={p + "/over/"}
+            aria-current={zelfdePad(p + "/over/") ? "page" : undefined}
+          >{t.nav.over}</a>
+          <a
+            href={p + "/contact/"}
+            aria-current={zelfdePad(p + "/contact/") ? "page" : undefined}
+          >{t.nav.contact}</a>
+          <a class="taal" href={anderePad}>{taal === "nl" ? "EN" : "NL"}</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class={lees ? "lees" : undefined}>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <p class="merk-voet">{SITE.naam}</p>
+        <p>
+          {SITE.persoon.naam}
+          {SITE.kvk && <> · KvK {SITE.kvk}</>}
+          {SITE.email && <> · <a href={`mailto:${SITE.email}`}>{SITE.email}</a></>}
+        </p>
+      </div>
+    </footer>
+    <script>
+      import { startBeweging } from "../scripts/beweging";
+      startBeweging();
+    </script>
+  </body>
+</html>

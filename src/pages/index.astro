@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import { TEKST } from "../config";
+import { artikelPad, nederlandseArtikelen } from "../lib/artikelen";
+
+const t = TEKST.nl;
+const artikelen = (await nederlandseArtikelen()).slice(0, 3);
+---
+
+<Base titel={t.kop} beschrijving={t.pitch} taal="nl">
+  <section class="hero">
+    <div class="hero-kop">
+      <h1>Binnenkomen bij opdrachtgevers<br><span class="accent">die nu buiten bereik liggen</span></h1>
+      <div>
+        <p class="lead">{t.pitch}</p>
+        <a class="knop" href="/contact/">{t.cta}</a>
+      </div>
+    </div>
+    <canvas class="beeld" aria-hidden="true"></canvas>
+  </section>
+
+  <section class="band band-licht">
+    <div class="raster">
+      <section class="kaart">
+        <h2>Voor wie dit is</h2>
+        <p>
+          Voor bedrijven die leveren aan overheden of aan grote afnemers, of dat
+          willen gaan doen. Die merken dat er een drempel ligt die niets met hun
+          vakmanschap te maken heeft, en die niet goed weten waar die drempel
+          precies zit.
+        </p>
+      </section>
+      <section class="kaart">
+        <h2>Wat ik doe</h2>
+        <p>
+          Ik vertaal de eisen die een afnemer of een aanbestedende dienst stelt naar
+          processen die werken en die een externe toets doorstaan. Niet een map met
+          papier, maar een manier van werken die klopt en die aantoonbaar is.
+        </p>
+        <p>
+          Eerder bouwde ik integrale kwaliteits-, veiligheids- en milieusystemen voor
+          mkb-bedrijven. Elke klant die daarmee naar een externe certificering ging,
+          haalde die.
+        </p>
+        <p><a href="/diensten/">De diensten</a>, per eis.</p>
+      </section>
+    </div>
+  </section>
+
+  {artikelen.length > 0 && (
+    <section class="band band-donker sectie">
+      <div class="binnen">
+        <h2>Lezen</h2>
+        <ul class="artikelen">
+          {artikelen.map((a) => (
+            <li>
+              <a href={artikelPad(a.id)}>{a.data.titel}</a>
+              {a.data.ondertitel && <p>{a.data.ondertitel}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+</Base>

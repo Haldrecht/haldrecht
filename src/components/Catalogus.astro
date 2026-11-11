@@ -1,0 +1,41 @@
+---
+import { CATALOGUS, ZOEKTERMEN } from "../data/catalogus";
+import type { Taal } from "../config";
+
+interface Props {
+  taal: Taal;
+}
+
+const { taal } = Astro.props;
+---
+
+<details class="catalogus">
+  <summary>{taal === "nl" ? "Volledige catalogus" : "Full catalogue"}</summary>
+  {CATALOGUS.map((groep) => (
+    <section>
+      <h2>{groep.nr} · {groep.titel}</h2>
+      <p class="meta">{groep.fase}</p>
+      <ul>
+        {groep.items.map((item) => (
+          <li>
+            <b>[{item.rol}]</b> {item.naam}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</details>
+
+<details class="catalogus">
+  <summary>{taal === "nl" ? "Zoektermen" : "Search phrases"}</summary>
+  {ZOEKTERMEN.map((groep) => (
+    <section>
+      <h2>{groep.titel}</h2>
+      <ul>
+        {groep.termen.map((term) => (
+          <li>{term}</li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</details>

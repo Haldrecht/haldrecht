@@ -1,0 +1,52 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE, type Taal } from "../config";
+import { dienstPad, gerelateerde, type Dienst } from "../data/diensten";
+
+interface Props {
+  dienst: Dienst;
+  taal: Taal;
+}
+
+const { dienst, taal } = Astro.props;
+const tekst = dienst[taal];
+const anderen = gerelateerde(dienst.slug);
+const pad = dienstPad(dienst.slug, taal);
+const contact = taal === "nl" ? "/contact/" : "/en/contact/";
+---
+
+<Base
+  titel={tekst.titel}
+  beschrijving={tekst.beschrijving}
+  taal={taal}
+  lees
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: tekst.titel,
+    description: tekst.beschrijving,
+    url: new URL(pad, Astro.site).href,
+    provider: { "@type": "Person", name: SITE.persoon.naam },
+    inLanguage: taal === "nl" ? "nl" : "en",
+  }}
+>
+  <h1>{tekst.titel}</h1>
+  <p class="lead">{tekst.lead}</p>
+  {tekst.alinea.map((alinea) => <p>{alinea}</p>)}
+  <p>{tekst.grens}</p>
+  <p><a class="knop" href={contact}>{taal === "nl" ? "Gesprek aanvragen" : "Request a conversation"}</a></p>
+
+  {anderen.length > 0 && (
+    <>
+      <h2>{taal === "nl" ? "Verwant" : "Related"}</h2>
+      <ul class="artikelen">
+        {anderen.map((ander) => (
+          <li>
+            <a href={dienstPad(ander.slug, taal)}>{ander[taal].titel}</a>
+            <p>{ander[taal].beschrijving}</p>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</Base>

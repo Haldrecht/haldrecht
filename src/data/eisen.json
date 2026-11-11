@@ -1,0 +1,64 @@
+{
+  "_comment": "VOORBEELDDATA. Gegenereerd bestand — niet met de hand bewerken. Het schema hieronder is wat het buildscript moet opleveren uit het aanbestedingscorpus. Zolang meta.voorbeelddata true is, toont elke pagina een waarschuwing en mogen deze cijfers niet gepubliceerd worden.",
+
+  "meta": {
+    "voorbeelddata": true,
+    "bron": "TenderNed-publicaties",
+    "periodeVan": "2024-01-01",
+    "periodeTot": "2026-10-28",
+    "cpvCodes": ["45"],
+    "publicaties": 0,
+    "documenten": 0,
+    "nietOpgenomen": "Mercell-publicaties zonder DOC-metadata",
+    "bijgewerkt": "2026-11-08"
+  },
+
+  "sectoren": [
+    {
+      "cpv": "45",
+      "naam": "Bouw en installatie",
+      "publicaties": 0,
+      "eisen": [
+        {
+          "categorie": "b",
+          "categorieNaam": "Financiële en economische draagkracht",
+          "type": "omzeteis",
+          "label": "Minimale jaaromzet",
+          "frequentie": 0.0,
+          "beinvloedbaar": false,
+          "termijn": null,
+          "drempels": { "p25": null, "mediaan": null, "p75": null }
+        },
+        {
+          "categorie": "c",
+          "categorieNaam": "Technische bekwaamheid",
+          "type": "referentie",
+          "label": "Referentieprojecten",
+          "frequentie": 0.0,
+          "beinvloedbaar": false,
+          "termijn": "3 jaar opbouw",
+          "aantal": { "mediaan": null },
+          "terugkijkJaren": { "mediaan": null }
+        },
+        {
+          "categorie": "c",
+          "categorieNaam": "Technische bekwaamheid",
+          "type": "certificaat",
+          "label": "ISO 9001",
+          "frequentie": 0.0,
+          "beinvloedbaar": true,
+          "termijn": "4–8 maanden"
+        },
+        {
+          "categorie": "d",
+          "categorieNaam": "Uitvoeringskwalificatie",
+          "type": "persoonscertificaat",
+          "label": "VCA op persoonsniveau",
+          "frequentie": 0.0,
+          "beinvloedbaar": true,
+          "termijn": "1–4 weken"
+        }
+      ]
+    }
+  ]
+}

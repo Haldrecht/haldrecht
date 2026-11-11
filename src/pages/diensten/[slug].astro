@@ -1,0 +1,15 @@
+---
+import Dienst from "../../components/Dienst.astro";
+import { DIENSTEN } from "../../data/diensten";
+
+export function getStaticPaths() {
+  return DIENSTEN.map((dienst) => ({
+    params: { slug: dienst.slug },
+    props: { dienst },
+  }));
+}
+
+const { dienst } = Astro.props;
+---
+
+<Dienst dienst={dienst} taal="nl" />

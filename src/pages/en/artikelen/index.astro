@@ -1,0 +1,39 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { artikelPad, nederlandseArtikelen } from "../../../lib/artikelen";
+
+const items = await nederlandseArtikelen();
+---
+
+<Base
+  titel="Articles"
+  beschrijving="Dutch pieces on how large buyers actually purchase, and why companies are ruled out before their offer is read."
+  taal="en"
+  lees
+>
+  <h1>Articles</h1>
+  <p class="lead">
+    These pieces are in Dutch. The tendering data they draw on has no English
+    equivalent, so a translation would drop the evidence.
+  </p>
+
+  {
+    items.length === 0 ? (
+      <p>Nothing published yet.</p>
+    ) : (
+      <ul class="artikelen">
+        {items.map((a) => (
+          <li>
+            <a href={artikelPad(a.id)}>{a.data.titel}</a>
+            {a.data.ondertitel && <p>{a.data.ondertitel}</p>}
+            {a.data.status === "concept" && (
+              <p>
+                <b>draft</b> — only visible in dev
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Base>

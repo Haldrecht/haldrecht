@@ -1,0 +1,46 @@
+---
+import Base from "../../layouts/Base.astro";
+import { artikelPad, nederlandseArtikelen } from "../../lib/artikelen";
+
+const alles = await nederlandseArtikelen();
+const beschrijving =
+  "Hoe grote opdrachtgevers inkopen, waarom bedrijven afvallen voordat hun aanbod gelezen is, en wat je eraan kunt doen.";
+
+const fasenaam: Record<number, string> = {
+  1: "Hoe het werkt",
+  2: "Als het misging",
+  3: "Naslag",
+};
+
+const perFase = [1, 2, 3].map((f) => ({
+  fase: f,
+  items: alles
+    .filter((a) => a.data.fase === f),
+}));
+---
+
+<Base titel="Artikelen" beschrijving={beschrijving} taal="nl" lees>
+  <h1>Artikelen</h1>
+  <p class="lead">{beschrijving}</p>
+
+  {perFase.map(({ fase, items }) =>
+    items.length > 0 ? (
+      <>
+        <h2>{fasenaam[fase]}</h2>
+        <ul class="artikelen">
+          {items.map((a) => (
+            <li>
+              <a href={artikelPad(a.id)}>
+                {a.data.titel}
+              </a>
+              {a.data.ondertitel && <p>{a.data.ondertitel}</p>}
+              {a.data.status === "concept" && (
+                <p><b>concept</b> — alleen zichtbaar in dev</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
+    ) : null
+  )}
+</Base>

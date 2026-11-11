@@ -1,0 +1,107 @@
+---
+/* Geen formulierdienst. De bezoeker opent zijn eigen mailprogramma;
+   er blijft niets bij een derde partij staan. Zonder adres in config
+   is er geen route naar buiten, en dan zeggen we dat in gewone taal. */
+import { SITE, type Taal } from "../config";
+
+interface Props {
+  taal?: Taal;
+}
+
+const { taal = "nl" } = Astro.props;
+
+const copy = {
+  nl: {
+    subject: "Gesprek aanvragen",
+    naam: "Je naam",
+    vragen: [
+      "Van wie kwam de eis, en wat staat er letterlijk?",
+      "Welke datum staat eronder, en wat gebeurt er als die niet gehaald wordt?",
+      "Wie binnen het bedrijf heeft dit nu op zijn bureau?",
+      "Wat ligt er al dat hergebruikt kan worden?",
+      "Wie tekent uiteindelijk?",
+    ],
+    verstuur: "Mail openen",
+    toelichting:
+      "Dit opent je eigen mailprogramma. Er gaat niets naar een formulierdienst.",
+    leeg: "Het mailadres van de praktijk staat nog niet vast. Zodra het er is, kun je hier een gesprek aanvragen.",
+    teLang:
+      "Dit is te lang om vanuit de browser te openen. Kort de antwoorden in.",
+  },
+  en: {
+    subject: "Conversation request",
+    naam: "Your name",
+    vragen: [
+      "Who imposed the requirement, and what does it say literally?",
+      "What is the deadline, and what happens if it is missed?",
+      "Who inside the company currently owns this?",
+      "What already exists that can be reused?",
+      "Who signs in the end?",
+    ],
+    verstuur: "Open email",
+    toelichting:
+      "This opens your own mail programme. Nothing is sent to a form service.",
+    leeg: "The practice email address is not set yet. Once it is, you can request a conversation here.",
+    teLang: "This is too long to open from the browser. Shorten the answers.",
+  },
+}[taal];
+---
+
+{
+  SITE.email ? (
+    <form id="gesprek" class="gesprek">
+      <div>
+        <label for="naam">{copy.naam}</label>
+        <input id="naam" name={copy.naam} type="text" required autocomplete="name" />
+      </div>
+      {copy.vragen.map((vraag, i) => (
+        <div>
+          <label for={`q${i}`}>{vraag}</label>
+          <textarea id={`q${i}`} name={vraag} rows="3" />
+        </div>
+      ))}
+      <p class="meta">{copy.toelichting}</p>
+      <p id="gesprek-fout" class="fout" hidden>
+        {copy.teLang}
+      </p>
+      <button class="knop" type="submit">{copy.verstuur}</button>
+    </form>
+    <script define:vars={{ email: SITE.email, subject: copy.subject }}>
+      const form = document.getElementById("gesprek");
+      const fout = document.getElementById("gesprek-fout");
+      form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!(form instanceof HTMLFormElement)) return;
+        const data = new FormData(form);
+        const lines: string[] = [];
+        for (const [key, value] of data.entries()) {
+          lines.push(key, String(value).trim(), "");
+        }
+        const href =
+          "mailto:" +
+          email +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(lines.join("\n"));
+        if (href.length > 1800) {
+          if (fout) fout.hidden = false;
+          return;
+        }
+        if (fout) fout.hidden = true;
+        window.location.href = href;
+      });
+    </script>
+  ) : (
+    <div class="paneel">
+      <ol>
+        {copy.vragen.map((vraag) => (
+          <li>{vraag}</li>
+        ))}
+      </ol>
+      <p>
+        <b>{copy.leeg}</b>
+      </p>
+    </div>
+  )
+}

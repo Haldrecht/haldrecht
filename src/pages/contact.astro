@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import GesprekForm from "../components/GesprekForm.astro";
+---
+
+<Base
+  titel="Contact"
+  beschrijving="Een kort gesprek over waar jouw bedrijf nu op afvalt."
+  taal="nl"
+  lees
+>
+  <h1>Gesprek aanvragen</h1>
+  <p class="lead">
+    Geen verkooppraatje. Een half uur waarin we vaststellen waar het bij jou
+    vastloopt, en of dat iets is dat te verhelpen valt.
+  </p>
+
+  <h2>Wat ik van tevoren wil weten</h2>
+  <p>Als je deze vijf dingen alvast beantwoordt, is het gesprek meteen nuttig.</p>
+  <GesprekForm taal="nl" />
+</Base>

@@ -1,0 +1,25 @@
+---
+import Base from "../../layouts/Base.astro";
+import Catalogus from "../../components/Catalogus.astro";
+import { DIENSTEN, dienstPad } from "../../data/diensten";
+
+const beschrijving =
+  "Diensten: ISO 45001, ISO 9001, ISO 27001, ISO 14001, privacy, B Corp, RTGB, agressie, weerbaarheid en risicomanagement.";
+---
+
+<Base titel="Diensten" beschrijving={beschrijving} taal="nl" lees>
+  <h1>Diensten</h1>
+  <p class="lead">
+    De eis waarop je afvalt, voorbereid tot een werkwijze die een opdrachtgever
+    kan toetsen. Eén onderwerp per pagina, zodat je vindt wat je zoekt.
+  </p>
+  <ul class="artikelen">
+    {DIENSTEN.map((d) => (
+      <li>
+        <a href={dienstPad(d.slug, "nl")}>{d.nl.titel}</a>
+        <p>{d.nl.beschrijving}</p>
+      </li>
+    ))}
+  </ul>
+  <Catalogus taal="nl" />
+</Base>

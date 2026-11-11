@@ -1,0 +1,60 @@
+---
+import Base from "../../layouts/Base.astro";
+import Verantwoording from "../../components/Verantwoording.astro";
+import { render } from "astro:content";
+import { SITE } from "../../config";
+import { nederlandseArtikelen } from "../../lib/artikelen";
+
+export async function getStaticPaths() {
+  const alles = await nederlandseArtikelen();
+  return alles.map((a) => ({
+    params: { slug: a.id.replace(/^nl\//, "") },
+    props: { a },
+  }));
+}
+
+const { a } = Astro.props;
+const { Content } = await render(a);
+const datum = a.data.datum.toLocaleDateString("nl-NL", {
+  day: "numeric", month: "long", year: "numeric",
+});
+/* YAML-datum is middernacht UTC. Lokale getters verschuiven de dag
+   ten westen van UTC; de kalenderdag uit het bestand blijft zo staan. */
+const gepubliceerd = [
+  a.data.datum.getUTCFullYear(),
+  String(a.data.datum.getUTCMonth() + 1).padStart(2, "0"),
+  String(a.data.datum.getUTCDate()).padStart(2, "0"),
+].join("-");
+const jsonLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: a.data.titel,
+  datePublished: gepubliceerd,
+  author: { "@type": "Person", name: SITE.persoon.naam },
+  inLanguage: "nl",
+};
+if (a.data.beschrijving) jsonLd.description = a.data.beschrijving;
+---
+
+<Base
+  titel={a.data.titel}
+  beschrijving={a.data.beschrijving}
+  taal="nl"
+  hreflang={false}
+  andere="/en/artikelen/"
+  lees
+  jsonLd={jsonLd}
+>
+  <article>
+    <h1>{a.data.titel}</h1>
+    {a.data.ondertitel && <p class="lead">{a.data.ondertitel}</p>}
+    <p class="meta">
+      {datum}{a.data.leestijd && <> · {a.data.leestijd}</>}
+      {a.data.status === "concept" && <> · <b>concept</b></>}
+    </p>
+
+    <Content />
+
+    {a.data.gebruiktData && <Verantwoording />}
+  </article>
+</Base>

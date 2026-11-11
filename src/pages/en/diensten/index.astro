@@ -1,0 +1,25 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Catalogus from "../../../components/Catalogus.astro";
+import { DIENSTEN, dienstPad } from "../../../data/diensten";
+
+const beschrijving =
+  "Services: ISO 45001, ISO 9001, ISO 27001, ISO 14001, privacy, B Corp, RTGB, aggression, resilience and risk management.";
+---
+
+<Base titel="Services" beschrijving={beschrijving} taal="en" lees>
+  <h1>Services</h1>
+  <p class="lead">
+    The requirement that rules you out, prepared as a way of working a buyer
+    can test. One subject per page, so the search lands on the right one.
+  </p>
+  <ul class="artikelen">
+    {DIENSTEN.map((d) => (
+      <li>
+        <a href={dienstPad(d.slug, "en")}>{d.en.titel}</a>
+        <p>{d.en.beschrijving}</p>
+      </li>
+    ))}
+  </ul>
+  <Catalogus taal="en" />
+</Base>
