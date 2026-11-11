@@ -2,8 +2,11 @@
    Wijzig hier, nergens anders. */
 
 export const SITE = {
-  /* WERKNAAM — vervang zodra de naam vaststaat. Verder nergens hardcoderen. */
-  naam: "Groundwork",
+  /* Firm name in titles and metadata. The header and footer use the wordmark. */
+  naam: "Haldrecht",
+  woordmerk: "HALDRECHT",
+  descriptor: "Regulatory Affairs & Assurance",
+  /* haldrecht.nl and haldrecht.com are not registered. Keep this placeholder. */
   domein: "example.nl",
 
   /* Vul in zodra bekend. Leeg laten is beter dan verzinnen: een onjuist

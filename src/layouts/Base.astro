@@ -79,7 +79,10 @@ function zelfdePad(href: string) {
     <canvas id="veld" class="veld" aria-hidden="true"></canvas>
     <header class="site">
       <div class="wrap">
-        <a class="merk" href={p + "/"}>{SITE.naam}</a>
+        <a class="merk" href={p + "/"}>
+          <span class="woordmerk">{SITE.woordmerk}</span>
+          <span class="onderschrift">{SITE.descriptor}</span>
+        </a>
         <nav>
           <a
             href={p + "/diensten/"}
@@ -110,7 +113,10 @@ function zelfdePad(href: string) {
 
     <footer class="site">
       <div class="wrap">
-        <p class="merk-voet">{SITE.naam}</p>
+        <div>
+          <p class="merk-voet">{SITE.woordmerk}</p>
+          <p class="onderschrift">{SITE.descriptor}</p>
+        </div>
         <p>
           {SITE.persoon.naam}
           {SITE.kvk && <> · KvK {SITE.kvk}</>}
