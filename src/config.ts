@@ -3,8 +3,8 @@
 
 export const SITE = {
   /* WERKNAAM — vervang zodra de naam vaststaat. Verder nergens hardcoderen. */
-  naam: "Groundwork",
-  domein: "example.nl",
+  naam: "Haldrecht",
+  domein: "haldrecht.com",
 
   /* Vul in zodra bekend. Leeg laten is beter dan verzinnen: een onjuist
      KvK-nummer op een site die over naleving gaat is een slechte grap. */

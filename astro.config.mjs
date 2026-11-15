@@ -11,7 +11,7 @@ const editorInDev = process.argv.includes("dev");
 export default defineConfig({
   // Zet dit op het echte domein zodra het er is: nodig voor sitemap en
   // canonical links.
-  site: "https://example.nl",
+  site: "https://haldrecht.com",
 
   integrations: editorInDev ? [react(), keystatic()] : [],
 
