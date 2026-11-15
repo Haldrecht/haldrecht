@@ -8,7 +8,7 @@ export const SITE = {
   descriptor: "Regulatory Affairs & Assurance",
   /* haldrecht.com is registered at Squarespace. It is not connected.
      Canonical URLs stay on this placeholder. Do not set DNS from here. */
-  domein: "example.nl",
+  domein: "haldrecht.com",
   /* De lanceringstekst is een concept. De Product Owner heeft hem niet goedgekeurd. */
   concept: true,
 
