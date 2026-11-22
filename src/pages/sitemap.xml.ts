@@ -10,6 +10,8 @@ const PAGINAS = [
   "/en/",
   "/artikelen/",
   "/en/artikelen/",
+  "/rie/",
+  "/en/rie/",
   "/over/",
   "/en/over/",
   "/contact/",

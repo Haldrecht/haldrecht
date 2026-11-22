@@ -476,3 +476,13 @@ footer.site a { color: var(--noot); }
   .beeld,
   .band { animation: none; }
 }
+
+/* ---- RI&E-productpagina ---- */
+.rie-actie { margin: 0 0 40px; }
+.rie-actie .meta { margin: 16px 0 0; }
+.rie-lijst { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 20px; }
+.rie-lijst p { margin: 4px 0 0; }
+.rie-keuze { display: grid; gap: 24px; margin: 0 0 32px; }
+.rie-keuze section { border-top: 1px solid var(--lijn, currentColor); padding-top: 16px; }
+.rie-keuze h3 { margin-top: 0; }
+@media (min-width: 720px) { .rie-keuze { grid-template-columns: 1fr 1fr; gap: 40px; } }

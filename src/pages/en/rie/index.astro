@@ -1,0 +1,10 @@
+---
+import Base from "../../../layouts/Base.astro";
+import RieProduct from "../../../components/RieProduct.astro";
+import { RIE_TEKST } from "../../../data/rie";
+const c = RIE_TEKST.en;
+---
+
+<Base titel={c.titel} beschrijving={c.beschrijving} taal="en" lees>
+  <RieProduct taal="en" />
+</Base>
