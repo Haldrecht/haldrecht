@@ -1,32 +1,30 @@
 # RI&E: koppeling website → dashboard
 
-De site linkt alleen naar het dashboard als `RIE` in `src/config.ts` is ingevuld.
-Leeg (nu) toont `/rie/` een wachtstand en verwijst naar `/contact/`.
+**Stand van zaken:** zelf registreren en afrekenen zijn nog niet operationeel.
+De site linkt daarom nergens naar de app. Zolang `RIE` in `src/config.ts` leeg is,
+toont `/rie/` een wachtstand en verwijst naar `/contact/`.
+
+## Wat de klant moet kunnen (vereisten voor de koppeling)
+
+1. Een nieuwe klant kan vanaf de site zelf beginnen: een account aanmaken en
+   afrekenen (eerst in testmodus), en komt daarna in het RI&E-dashboard.
+2. Een bestaande klant kan inloggen en verder gaan waar hij gebleven was.
+3. Een klant die de betaling afbreekt, komt op een duidelijke pagina terug en
+   kan het opnieuw proberen of contact opnemen.
+4. Een klant die betaald heeft maar nog geen toegang ziet, krijgt een begrijpelijke
+   melding en een contactroute.
+5. De prijs is vastgesteld en bevestigd voordat hij op de site staat.
 
 ## Wat de website nodig heeft van `Haldrecht/rie-compliance-dashboard`
 
 | Config | Betekenis | Status |
 |---|---|---|
-| `RIE.appUrl` | https-oorsprong van het gedeployde dashboard | **onbekend**: niet geverifieerd welke URL in productie staat |
-| `RIE.startPad` | waar een nieuwe klant begint (registratie of checkout) | **bestaat nog niet** |
-| `RIE.loginPad` | login voor bestaande klanten | `/login` bestaat in code op `main`; nog niet bevestigd als contract |
+| `RIE.appUrl` | https-oorsprong van het gedeployde dashboard | nog te bevestigen |
+| `RIE.startPad` | waar een nieuwe klant begint (account + afrekenen) | nog niet beschikbaar |
+| `RIE.loginPad` | waar een bestaande klant inlogt | nog te bevestigen |
 
-## Gevonden in de dashboard-repo (alleen gelezen, op `main` e3a2227)
-
-- `/register` en `POST /api/auth/register` zijn bewust uitgeschakeld ("Account aanmaken uitgeschakeld"; accounts worden door een beheerder aangemaakt).
-- `POST /api/payment/create-checkout` verwacht `{ userId, email, plan }`: een bestaand gebruikers-ID. Er is dus geen publieke route die een nieuwe bezoeker naar Stripe brengt.
-- `success_url` is `/payment/success`, `cancel_url` is `/register?canceled=true`, dat nu naar de uitgeschakelde pagina leidt.
-- Het bedrag in die route (49900, jaarabonnement) staat er als aanname; de website publiceert geen prijs.
-- De branch `feat/o2c-vertical-slice` had bij inspectie geen commits boven `main`.
-
-## Wat de dashboard-engineer moet opleveren voordat `startPad` gevuld mag worden
-
-1. Een publieke, werkende start-URL (registratie → Stripe test-checkout → dashboard).
-2. De definitieve productie-oorsprong.
-3. Wat terugkerende klanten zien en waar een geannuleerde betaling landt.
-4. Bevestiging van de prijs, als die op de site moet.
-
-Daarna: vul de drie velden in `src/config.ts` in. Niets anders hoeft te veranderen;
+Zodra de dashboard-engineer een werkende, geverifieerde route oplevert, vult een
+vervolgcommit deze drie velden in. Niets anders hoeft te veranderen;
 `npm test` controleert beide taalversies.
 
 ## Meetpunten
