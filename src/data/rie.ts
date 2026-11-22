@@ -31,7 +31,7 @@ export const RIE_TEKST: Record<Taal, RieTekst> = {
       "RI&E-software voor werkgevers: risico's per categorie inventariseren, maatregelen vastleggen en het plan van aanpak bijhouden.",
     kop: "RI&E-software voor werkgevers",
     lead:
-      "De Arbowet vraagt werkgevers een risico-inventarisatie en -evaluatie te hebben. Met deze software loop je de risico's van je werkplek stap voor stap door, leg je de maatregelen vast en houd je het plan van aanpak op één plek bij.",
+      "Volgens artikel 5 van de Arbowet legt de werkgever de risico's van het werk schriftelijk vast in een risico-inventarisatie en -evaluatie (RI&E), met een plan van aanpak. Met deze software loop je de risico's van je werkplek stap voor stap door, leg je de maatregelen vast en houd je het plan van aanpak op één plek bij.",
     start: "Start met RI&E",
     toegang: "Toegang aanvragen",
     login: "Inloggen",
@@ -83,7 +83,7 @@ export const RIE_TEKST: Record<Taal, RieTekst> = {
       "RI&E software for employers: inventory workplace risks by category, record measures and keep the action plan up to date.",
     kop: "RI&E software for employers",
     lead:
-      "Dutch working-conditions law expects employers to have a risk inventory and evaluation (RI&E). This software walks you through your workplace risks step by step, records the measures and keeps the action plan in one place.",
+      "Under article 5 of the Dutch Working Conditions Act (Arbowet), employers record the risks of the work in writing in a risk inventory and evaluation (RI&E), including an action plan. This software walks you through your workplace risks step by step, records the measures and keeps the action plan in one place.",
     start: "Start with RI&E",
     toegang: "Request access",
     login: "Log in",
