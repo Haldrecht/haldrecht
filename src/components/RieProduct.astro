@@ -1,0 +1,79 @@
+---
+/* RI&E-productpagina. De knoppen volgen config: alleen met een geverifieerde
+   dashboardroute linkt de site naar de app, anders staat er een wachtstand. */
+import { RIE, type Taal } from "../config";
+import { RIE_TEKST } from "../data/rie";
+import { rieRoutes } from "../lib/rie";
+
+interface Props {
+  taal: Taal;
+}
+const { taal } = Astro.props;
+const c = RIE_TEKST[taal];
+const p = taal === "nl" ? "" : "/en";
+const route = rieRoutes(RIE);
+const contact = `${p}/contact/`;
+---
+
+<h1>{c.kop}</h1>
+<p class="lead">{c.lead}</p>
+
+<div class="rie-actie" data-rie-start={route.start ? "open" : "wacht"}>
+  {
+    route.start ? (
+      <a class="knop" href={route.start} data-event="rie_start" data-plek="hero">{c.start}</a>
+    ) : (
+      <>
+        <a class="knop" href={contact} data-event="rie_toegang_aanvragen" data-plek="hero">{c.toegang}</a>
+        <p class="meta" id="rie-wacht">{c.wachtstand}</p>
+      </>
+    )
+  }
+</div>
+
+<h2>{c.inhoudKop}</h2>
+<ul class="rie-lijst">
+  {c.inhoud.map((i) => (
+    <li>
+      <strong>{i.kop}</strong>
+      <p>{i.tekst}</p>
+    </li>
+  ))}
+</ul>
+
+<h2>{c.keuzeKop}</h2>
+<div class="rie-keuze">
+  <section aria-labelledby="rie-sw">
+    <h3 id="rie-sw">{c.software.kop}</h3>
+    <p>{c.software.tekst}</p>
+    {
+      route.start ? (
+        <a href={route.start} data-event="rie_start" data-plek="keuze">{c.software.actie}</a>
+      ) : (
+        <a href={contact} data-event="rie_toegang_aanvragen" data-plek="keuze">{c.toegang}</a>
+      )
+    }
+  </section>
+  <section aria-labelledby="rie-adv">
+    <h3 id="rie-adv">{c.advies.kop}</h3>
+    <p>{c.advies.tekst}</p>
+    <a href={contact} data-event="advies_aanvragen" data-plek="keuze">{c.advies.actie}</a>
+  </section>
+</div>
+
+<h2>{c.klantKop}</h2>
+{
+  route.login ? (
+    <>
+      <p>{c.klantTekst}</p>
+      <a class="knop" href={route.login} data-event="rie_login" data-plek="klant">{c.login}</a>
+    </>
+  ) : (
+    <p>{c.loginWacht}</p>
+  )
+}
+
+<h2>{c.grensKop}</h2>
+<ul>
+  {c.grens.map((g) => <li>{g}</li>)}
+</ul>

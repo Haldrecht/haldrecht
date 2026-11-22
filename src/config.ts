@@ -20,6 +20,19 @@ export const SITE = {
   },
 } as const;
 
+/* Koppeling met het RI&E-dashboard (aparte repo: rie-compliance-dashboard).
+   Leeg = die route bestaat nog niet of is niet geverifieerd. De site linkt dan
+   nergens heen en zegt dat eerlijk. Verzin hier geen URL: vul alleen in wat
+   de dashboard-repo als werkend contract oplevert (zie docs/RIE-KOPPELING.md).
+   - appUrl: oorsprong van het dashboard, zonder slash, bv. https://app.example
+   - startPad: waar een nieuwe klant begint (registratie of checkout)
+   - loginPad: waar een bestaande klant inlogt */
+export const RIE = {
+  appUrl: "",
+  startPad: "",
+  loginPad: "",
+} as const;
+
 export const TEKST = {
   nl: {
     taalnaam: "Nederlands",
@@ -32,6 +45,7 @@ export const TEKST = {
       diensten: "Diensten",
       artikelen: "Artikelen",
       kaart: "Kaart",
+      rie: "RI&E",
       over: "Over",
       contact: "Contact",
     },
@@ -48,6 +62,7 @@ export const TEKST = {
       diensten: "Services",
       artikelen: "Articles",
       kaart: "Map",
+      rie: "RI&E",
       over: "About",
       contact: "Contact",
     },

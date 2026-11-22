@@ -86,6 +86,10 @@ function zelfdePad(href: string) {
             aria-current={Astro.url.pathname.includes("/diensten") ? "page" : undefined}
           >{t.nav.diensten}</a>
           <a
+            href={p + "/rie/"}
+            aria-current={Astro.url.pathname.includes("/rie") ? "page" : undefined}
+          >{t.nav.rie}</a>
+          <a
             href={p + "/artikelen/"}
             aria-current={Astro.url.pathname.includes("/artikelen") ? "page" : undefined}
           >{t.nav.artikelen}</a>
@@ -121,6 +125,8 @@ function zelfdePad(href: string) {
     <script>
       import { startBeweging } from "../scripts/beweging";
       startBeweging();
+      import { startGebeurtenissen } from "../scripts/gebeurtenis";
+      startGebeurtenissen();
     </script>
   </body>
 </html>
